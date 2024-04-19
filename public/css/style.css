@@ -1,0 +1,45 @@
+/* Agrega esto a tu archivo style.css */
+
+.menu-item-image {
+    width: 50px; /* o el tamaño que prefieras */
+    height: 50px; /* o el tamaño que prefieras */
+    object-fit: cover;
+}
+
+.menu-item-name {
+    font-weight: bold;
+    display: inline; /* Para poder alinear los puntos correctamente */
+}
+
+.menu-item-dots {
+    border-bottom: 1px dashed #000;
+    margin: 0 10px;
+}
+
+.menu-item-price {
+    white-space: nowrap; /* Asegura que el precio no se divida en dos líneas */
+    padding-left: 15px; /* Espacio entre los puntos y el precio */
+}
+
+.menu-item-ingredients {
+    font-style: italic;
+    color: #555;
+}
+
+.list-group-item {
+    border: none; /* Elimina los bordes si prefieres */
+}
+
+@media (min-width: 768px) {
+    .menu-item-info {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Asegúrate de que el diseño se mantenga responsivo */
+@media (max-width: 767px) {
+    .menu-item-dots {
+        display: none; /* Oculta los puntos en pantallas pequeñas si es necesario */
+    }
+}
