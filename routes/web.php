@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/dashboard/categories/reorder', [CategoryController::class, 'reorder'])->name('dashboard.categories.reorder');
 
-
     // Rutas manuales para Platos
     Route::get('/dashboard/dishes/create', [DishController::class, 'create'])->name('dashboard.dishes.create');
     Route::post('/dashboard/dishes', [DishController::class, 'store'])->name('dashboard.dishes.store');

@@ -21,13 +21,6 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
-                        <!-- Order -->
-                        <div class="mt-4">
-                            <x-input-label for="order" :value="__('Orden Categoría')" />
-                            <x-text-input id="order" class="block mt-1 w-full" type="number" name="order" :value="old('order')" disabled />
-                            <x-input-error :messages="$errors->get('order')" class="mt-2" />
-                        </div>
-
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ml-3">
                                 {{ __('Añadir') }}

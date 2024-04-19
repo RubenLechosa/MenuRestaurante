@@ -24,7 +24,7 @@
                     @if ($categories->isNotEmpty())
                         <div class="accordion mt-4" id="accordionExample">
                             <!-- Div contenedor para hacer sortable las categorías -->
-                            <div id="categories-list">
+                            <div id="categories-list" data-reorder-url="{{ route('dashboard.categories.reorder') }}">
                                 @foreach ($categories as $index => $category)
                                     <div class="accordion-item" data-id="{{ $category->id }}">
                                         <h2 class="accordion-header" id="heading{{ $index }}">
@@ -93,44 +93,10 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var el = document.getElementById('categories-list');
-            var sortable = Sortable.create(el, {
-                handle: '.accordion-header', // Usar el header del acordeón como "handle"
-                onEnd: function (evt) {
-                    var order = Array.from(el.children).map(function (item, index) {
-                        return { id: item.getAttribute('data-id'), position: index + 1 };
-                    });
-
-                    fetch('{{ route('dashboard.categories.reorder') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({ order: order })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        if (data.success) {
-                            // Manejar éxito
-                        } else {
-                            // Manejar errores
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-                }
-            });
-        });
-    </script>
 </x-app-layout>
+
+<script src="{{ asset('js/app.js') }}"></script>
+
 
 
 
